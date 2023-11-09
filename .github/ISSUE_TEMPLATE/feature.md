@@ -10,9 +10,9 @@ assignees: ''
 
 <!--- Provide a clear and concise description of the feature you are requesting. -->
 
-## Use Case
+## Acceptance Criteria
 
-<!--- Describe the use case for this feature. -->
+<!--- Describe what acceptance looks like. Any tests or actions. -->
 
 ## Proposed Solution
 
