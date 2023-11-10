@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "Networking_App",
+    "productName": "networking_app",
     "version": "0.0.0"
   },
   "tauri": {

@@ -4,8 +4,14 @@
   line-height: 24px;
   font-weight: 400;
 
+/* Color Variables */
   color: #0f0f0f;
-  background-color: #f6f6f6;
+  background-color: var(--tan);
+  --dark-green: #588157;
+  --light-green: #a3b18a;
+  --tan: #dad7cd;
+  --orange: #ff4a1c;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
