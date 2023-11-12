@@ -1,0 +1,24 @@
+#[derive(Debug)]
+pub struct Person {
+    pub id: i32,
+    pub first_name: String,
+    pub last_name: String,
+    pub relationship: Relationship,
+    pub email: String,
+    pub phone_number: String
+}
+
+#[derive(Debug)]
+pub enum Relationship {
+    Friend,
+    Work,
+    Hobby,
+}
+#[derive(Debug)]
+pub struct History {
+    pub id: i32,
+    pub person_id: i32,
+    pub date: String,
+    pub topic: String,
+    pub contact_platform: String
+}
