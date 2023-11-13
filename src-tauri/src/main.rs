@@ -5,7 +5,9 @@ mod crud;
 
 use rusqlite::{Connection, Result};
 use modules::{Relationship, Person, History};
-use crud::{create_connection, create_person, read_person, delete_person, update_person};
+use crud::{create_connection, create_person, read_person, delete_person, update_person,
+    create_history, read_history, delete_history, update_history};
+
 
 fn main() -> Result<()> {
 

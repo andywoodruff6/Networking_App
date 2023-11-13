@@ -1,7 +1,12 @@
 use rusqlite::{Connection, Result};
+use tauri::utils::platform;
 use crate::modules::{Relationship, Person, History};
-use crate::crud;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
+
+///////////////////////////////////////////////////////////////////
 // PERSON CRUD
+///////////////////////////////////////////////////////////////////
 pub fn create_connection() -> Result<Connection, rusqlite::Error> {
     match Connection::open("connecti.db") {
     Ok(connection) => {
@@ -67,7 +72,7 @@ pub fn read_person(id: i32) -> Result<Person, rusqlite::Error> {
         })
     })?;
 
-    let person = person_iter
+    let person: Person = person_iter
         .map(|person| person.unwrap())
         .collect::<Vec<Person>>()
         .pop()
@@ -117,3 +122,94 @@ pub fn delete_person(id: i32) -> Result<(), rusqlite::Error> {
     println!("Deleted person with id: {}", id);
     Ok(())
 }
+
+
+///////////////////////////////////////////////////////////////////
+// HISTORY CRUD
+///////////////////////////////////////////////////////////////////
+
+// Create - to database
+#[tauri::command]
+pub fn create_history(person_id: i32, topic: String, platform: String) -> Result<(), rusqlite::Error> {
+    let conn: Connection = create_connection()?;
+
+    let date: String = Utc::now().to_rfc3339();
+    let person_id_string: String = person_id.to_string();
+
+    conn.execute(
+        "INSERT INTO history
+        (person_id, date, topic, contact_platform)
+        VALUES (?1, ?2, ?3, ?4)",
+        [
+            &person_id_string,
+            &date,
+            &topic,
+            &platform
+        ],
+    )?; 
+    println!("Created history for person with id: {}", person_id);
+
+    Ok(())
+}
+
+// Read - from database
+#[tauri::command]
+pub fn read_history(id: i32) -> Result<History, rusqlite::Error> {
+    let conn: Connection = create_connection()?;
+
+    let mut stmt = conn.prepare("SELECT * FROM history WHERE id = ?1")?;
+    let history_iter = stmt.query_map([id], |row| {
+        Ok(History {
+            id: row.get(0)?,
+            person_id: row.get(1)?,
+            date: row.get(2)?,
+            topic : row.get(3)?,
+            contact_platform: row.get(4)?,
+        })
+    })?;
+
+    let history: History = history_iter
+        .map(|history| history.unwrap())
+        .collect::<Vec<History>>()
+        .pop()
+        .unwrap();
+    println!("found history: {:#?}", history);
+    Ok(history)
+}
+
+// Update - to database
+#[tauri::command]
+pub fn update_history(id: i32, topic: String, platform: String) -> Result<(), rusqlite::Error> {
+    let conn: Connection = create_connection()?;
+
+    let date: String = Utc::now().to_rfc3339();
+
+    conn.execute(
+        "UPDATE history
+        SET date = ?1, topic = ?2, contact_platform = ?3
+        WHERE id = ?4",
+        [
+            &date,
+            &topic,
+            &platform,
+            &id.to_string()
+        ]
+    )?;
+    println!("Updated history: {}", id);
+    Ok(())
+}
+
+// Delete - from database
+#[tauri::command]
+pub fn delete_history(id: i32) -> Result<(), rusqlite::Error> {
+    let conn: Connection = create_connection()?;
+
+    conn.execute(
+        "DELETE FROM history
+        WHERE id = ?1",
+        [id]
+    )?;
+    println!("Deleted history with id: {}", id);
+    Ok(())
+}
+
