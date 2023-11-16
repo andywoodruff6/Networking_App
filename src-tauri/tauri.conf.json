@@ -36,7 +36,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "Networking_App",
+        "title": "Networking App",
         "width": 1000,
         "height": 800,
         "center": true,
