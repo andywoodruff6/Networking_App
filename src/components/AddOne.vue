@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .AddOne:border {
-  border: 1px solid red;
+  border: 10px solid red;
 }
 
 

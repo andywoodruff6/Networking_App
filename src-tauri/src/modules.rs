@@ -1,4 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug)]
+#[derive(Deserialize, Serialize)]
 pub struct Person {
     pub id: i32,
     pub first_name: String,
@@ -9,12 +12,14 @@ pub struct Person {
 }
 
 #[derive(Debug)]
+#[derive(Deserialize, Serialize)]
 pub enum Relationship {
     Friend,
     Work,
     Hobby,
 }
 #[derive(Debug)]
+#[derive(Deserialize, Serialize)]
 pub struct History {
     pub id: i32,
     pub person_id: i32,
