@@ -1,13 +1,37 @@
 <script>
-    import { ref } from "vue";
-    import { invoke } from "@tauri-apps/api/tauri";
+    import { ref, onMounted } from "vue";
+    // import { invoke } from "@tauri-apps/api/tauri";
+    import Database from "tauri-plugin-sql-api";
 
     export default {
      setup() {
+      onMounted(async () => {
+        const db = await Database.load("sqlite:test.sqlite");
+        try {
+      // sqlite. The path is relative to `tauri::api::path::BaseDirectory::App`.
+      // const db = await Database.load("sqlite:test.sqlite");
+      console.log("test");
+      // Create a table.
+      await db.execute(
+        "CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY, name TEXT)"
+      );
+      console.log("Created table? maybe");
+        } catch (err) {
+          console.error('Error:', err);
+        }
+
+      await db. execute("INSERT INTO person (id, name) VALUES (?, ?)", [1, "John Doe"]);
+      console.log("Inserted a person");
+
+      let result = await db.select(
+        "SELECT * FROM person",
+      );
+      console.log("Read a person", result);
+    });
+
             async function createPerson() {
             // Call the create person function here
             }
-
             async function readPerson() {
               
             }
