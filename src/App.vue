@@ -5,15 +5,11 @@ import Sidebar from './components/sidebar/Sidebar.vue'
 </script>
 
 <template>
-  <Sidebar />
   <div class="container">
-    <h1>Welcome to Tauri!</h1>
-
+    <Sidebar />
     <router-view />
 
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

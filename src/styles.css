@@ -26,7 +26,7 @@
 
   float: left;
   position: fixed;
-  z-index: 1;
+  /* z-index: 1; */
   top: 0;
   left: 0;
   bottom: 0;
@@ -39,7 +39,6 @@
 .active.icon-link {
   color: var(--light-green);
 }
-
 .icon-link {
   color: var(--tan);
   padding: 0.5em;
@@ -47,15 +46,12 @@
   justify-content: center;
   align-items: center;
 }
-
-
-
 .container {
   margin: 0;
   padding-top: 10vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   text-align: center;
 }
 
