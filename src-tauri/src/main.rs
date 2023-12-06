@@ -1,59 +1,39 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod modules;
-mod crud;
-
-use rusqlite::{Connection, Result};
 use modules::{Relationship, Person, History};
-use crud::{create_connection, create_person, read_person, delete_person, update_person,
-    create_history, read_history, delete_history, update_history};
 
+fn main() {
 
-fn main() -> Result<()> {
+    // conn.execute(
+    //     "CREATE TABLE IF NOT EXISTS person (
+    //         id           INTEGER PRIMARY KEY,
+    //         first_name   TEXT NOT NULL,
+    //         last_name    TEXT NOT NULL,
+    //         relationship TEXT NOT NULL,
+    //         email        TEXT NOT NULL,
+    //         phone_number TEXT NOT NULL
+    //     )",
+    //     [],
+    // )?;
 
-    let conn: Connection = create_connection()?;
-
-    conn.execute(
-        "CREATE TABLE IF NOT EXISTS person (
-            id           INTEGER PRIMARY KEY,
-            first_name   TEXT NOT NULL,
-            last_name    TEXT NOT NULL,
-            relationship TEXT NOT NULL,
-            email        TEXT NOT NULL,
-            phone_number TEXT NOT NULL
-        )",
-        [],
-    )?;
-
-    conn.execute(
-        "CREATE TABLE IF NOT EXISTS history (
-            id               INTEGER PRIMARY KEY,
-            person_id        INTEGER NOT NULL,
-            date             TEXT NOT NULL,
-            topic            TEXT NOT NULL,
-            contact_platform TEXT NOT NULL,
-            FOREIGN KEY (person_id) REFERENCES person (id)
-        )",
-        [],
-    )?;
-
-    let test: Person = Person {
-        id: 1,
-        first_name: "first".to_string(),
-        last_name: "last".to_string(),
-        relationship: Relationship::Friend,
-        email: "test@test.com".to_string(),
-        phone_number: "1234567890".to_string()
-    };
-    create_person(test)?;
-    read_person(1)?;
+    // conn.execute(
+    //     "CREATE TABLE IF NOT EXISTS history (
+    //         id               INTEGER PRIMARY KEY,
+    //         person_id        INTEGER NOT NULL,
+    //         date             TEXT NOT NULL,
+    //         topic            TEXT NOT NULL,
+    //         contact_platform TEXT NOT NULL,
+    //         FOREIGN KEY (person_id) REFERENCES person (id)
+    //     )",
+    //     [],
+    // )?;
 
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![greet, add_one])
+        .plugin(tauri_plugin_sql::Builder::default().build())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-
-    Ok(())
 }
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
