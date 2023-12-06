@@ -2,11 +2,12 @@
     import { ref, onMounted } from "vue";
     // import { invoke } from "@tauri-apps/api/tauri";
     import Database from "tauri-plugin-sql-api";
+    import { logError } from "../helper/helper-functions";
 
     export default {
      setup() {
       onMounted(async () => {
-        const db = await Database.load("sqlite:test.sqlite");
+        const db = await Database.load("sqlite:test.db");
         try {
       // sqlite. The path is relative to `tauri::api::path::BaseDirectory::App`.
       // const db = await Database.load("sqlite:test.sqlite");
@@ -17,7 +18,7 @@
       );
       console.log("Created table? maybe");
         } catch (err) {
-          console.error('Error:', err);
+      logError(err);
         }
 
       await db. execute("INSERT INTO person (id, name) VALUES (?, ?)", [1, "John Doe"]);

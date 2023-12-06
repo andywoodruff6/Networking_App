@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>another Page</h1>
+<h1>addPerson</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'anotherPage',
+  // Your script code here
 }
 </script>
 
 <style scoped>
-/* Add your custom styles here */
+/* Your style code here */
 </style>
