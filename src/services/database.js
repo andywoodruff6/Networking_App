@@ -14,3 +14,14 @@ export async function checkAndCreateTables() {
     );
     // maybe future check relationship table
 }
+
+export async function addPerson(first_name, last_name, relationship, email, phone_number) {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // add person
+    await db.execute(
+        'INSERT INTO person (first_name, last_name, relationship, email, phone_number) VALUES (?,?,?,?,?)',
+        [first_name, last_name, relationship, email, phone_number]
+    );
+    console.log('Person added');    
+}
