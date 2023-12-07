@@ -51,6 +51,7 @@ export default {
   methods: {
     async submitForm() {
       try {
+        // refactor this into service/database.js
         const db = await Database.load("sqlite:test.db");
         await db.execute(
           'INSERT INTO person (first_name, last_name, relationship, email, phone_number) VALUES (?,?,?,?, ?)',
