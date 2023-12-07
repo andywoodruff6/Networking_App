@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Database from 'tauri-plugin-sql-api';
+import { addPerson } from '../services/database.js';
 
 export default {
   data() {
@@ -51,12 +51,13 @@ export default {
   methods: {
     async submitForm() {
       try {
-        // refactor this into service/database.js
-        const db = await Database.load("sqlite:test.db");
-        await db.execute(
-          'INSERT INTO person (first_name, last_name, relationship, email, phone_number) VALUES (?,?,?,?, ?)',
-          [this.first_name, this.last_name, this.relationship, this.email, this.phone_number])
-        console.log('Person added');
+        addPerson(
+          this.first_name, 
+          this.last_name, 
+          this.relationship, 
+          this.email, 
+          this.phone_number
+        );
       } catch (error) {
         console.error(error);
       }
@@ -66,9 +67,4 @@ export default {
 </script>
 
 <style scoped>
-.input-card {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 1rem 0;
-}
 </style>
