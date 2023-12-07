@@ -46,6 +46,24 @@
   justify-content: center;
   align-items: center;
 }
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  max-width: 300px;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+
+  border: 1px solid red;
+}
+
+.addPersonPage {
+  border: 1px solid blue;
+  order: 2;
+  margin-left: 100px;
+}
+
 .container {
   margin: 0;
   padding-top: 10vh;
@@ -73,6 +91,12 @@
 
 h1 {
   text-align: center;
+}
+.button {
+  background-color: var(--orange);
+  border: none;
+  color: var(--tan);
+  padding: 0.5rem 1rem;
 }
 
 #greet-input {
