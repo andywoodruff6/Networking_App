@@ -25,3 +25,11 @@ export async function addPerson(first_name, last_name, relationship, email, phon
     );
     console.log('Person added');    
 }
+
+export async function getPeople() {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // get people
+    const people = await db.select('SELECT * FROM person');
+    return people;
+}
