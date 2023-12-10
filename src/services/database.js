@@ -3,7 +3,7 @@ import Database from "tauri-plugin-sql-api";
 export async function checkAndCreateTables() {
     // load database connection
     const db = await Database.load("sqlite:test.db");
-    
+
     // check person table
     await db.execute(
         "CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, relationship TEXT, email TEXT, phone_number TEXT)"
@@ -14,7 +14,6 @@ export async function checkAndCreateTables() {
     );
     // maybe future check relationship table
 }
-
 export async function addPerson(first_name, last_name, relationship, email, phone_number) {
     // load database connection
     const db = await Database.load("sqlite:test.db");
@@ -23,13 +22,19 @@ export async function addPerson(first_name, last_name, relationship, email, phon
         'INSERT INTO person (first_name, last_name, relationship, email, phone_number) VALUES (?,?,?,?,?)',
         [first_name, last_name, relationship, email, phone_number]
     );
-    console.log('Person added');    
+    console.log('Person added');
 }
-
 export async function getPeople() {
     // load database connection
     const db = await Database.load("sqlite:test.db");
     // get people
     const people = await db.select('SELECT * FROM person');
+    return people;
+}
+export async function getPeopleByRelationship(relationship) {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // get people
+    const people = await db.select('SELECT * FROM person WHERE relationship = $1', [relationship]);
     return people;
 }
