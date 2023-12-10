@@ -38,3 +38,13 @@ export async function getPeopleByRelationship(relationship) {
     const people = await db.select('SELECT * FROM person WHERE relationship = $1', [relationship]);
     return people;
 }
+export async function addHistory(person_id, date, topic, contact_platform) {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // add history
+    await db.execute(
+        'INSERT INTO history (person_id, date, topic, contact_platform) VALUES (?,?,?,?)',
+        [person_id, date, topic, contact_platform]
+    );
+    console.log('History added');
+}
