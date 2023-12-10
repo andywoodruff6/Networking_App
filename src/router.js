@@ -6,6 +6,7 @@ import friendPage from './pages/friendPage.vue'
 import workPage from './pages/workPage.vue'
 import HobbyPage from './pages/HobbyPage.vue'
 import addPersonPage from './pages/addPersonPage.vue'
+import FullPersonInfo from './components/full-person/FullPersonInfo.vue'
 
 const routes = [
     { path: '/', component: homePage },
@@ -14,7 +15,8 @@ const routes = [
     { path: '/friend', component: friendPage },
     { path: '/work', component: workPage },
     { path: '/hobby', component: HobbyPage },
-    { path: '/addPerson', component: addPersonPage }
+    { path: '/addPerson', component: addPersonPage },
+    { path: '/fullPersonInfo', component: FullPersonInfo }
 ]
 
 const router = createRouter({
