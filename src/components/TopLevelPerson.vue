@@ -1,27 +1,29 @@
 <template>
-    <router-link to="/FullPersonInfo">
-    <div>
-        {{ first_name }} {{ last_name }} {{ id }}
-    </div>
-</router-link>
+    <router-link :to="{ name: 'FullPersonInfo', params: { 
+        id: id,
+        first_name: first_name,
+        last_name: last_name,
+        relationship: relationship,
+        email: email,
+        phone_number: phone_number
+        }, }">
+        <div>
+            {{ first_name }} {{ last_name }} {{ id }}
+        </div>
+    </router-link>
 </template>
 
 <script>
 export default {
-    props: {
-        first_name: {
-            type: String,
-        },
-        last_name: {
-            type: String,
-        },
-        id: {
-            type: Number,
-        },
-    }
+    props: [
+        'id',
+        'first_name',
+        'last_name',
+        'relationship',
+        'email',
+        'phone_number'
+    ],
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

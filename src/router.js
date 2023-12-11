@@ -16,7 +16,7 @@ const routes = [
     { path: '/work', component: workPage },
     { path: '/hobby', component: HobbyPage },
     { path: '/addPerson', component: addPersonPage },
-    { path: '/fullPersonInfo', component: FullPersonInfo }
+    { path: '/FullPersonInfo', name:'FullPersonInfo', component: FullPersonInfo, props: true }
 ]
 
 const router = createRouter({
