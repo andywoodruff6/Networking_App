@@ -6,8 +6,8 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "Networking_App",
-    "version": "0.0.0"
+    "productName": "connecti",
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -36,7 +36,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "Networking_App",
+        "title": "Connecti",
         "width": 800,
         "height": 600
       }
