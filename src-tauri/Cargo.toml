@@ -1,6 +1,8 @@
 [package]
-name = "networking_app"
-version = "0.0.1"
+
+name = "connecti"
+version = "0.0.0"
+
 description = "A Tauri App"
 authors = ["you"]
 license = ""
