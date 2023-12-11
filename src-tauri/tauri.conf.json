@@ -6,7 +6,9 @@
     "distDir": "../dist"
   },
   "package": {
+
     "productName": "connecti",
+
     "version": "0.0.1"
   },
   "tauri": {
@@ -37,8 +39,14 @@
         "fullscreen": false,
         "resizable": true,
         "title": "Connecti",
-        "width": 800,
-        "height": 600
+        "width": 1000,
+        "height": 800,
+        "center": true,
+        "minWidth": 400,
+        "minHeight": 300,
+        "maxWidth": 1000,
+        "maxHeight": 800
+
       }
     ]
   }

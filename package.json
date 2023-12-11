@@ -1,7 +1,7 @@
 {
   "name": "connecti",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,12 +10,15 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@tauri-apps/api": "^1.5.1",
+    "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql#v1",
     "vue": "^3.3.4",
-    "@tauri-apps/api": "^1.5.1"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.5.6",
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.4",
-    "@tauri-apps/cli": "^1.5.6"
+    "vite": "^4.4.4"
   }
 }
