@@ -8,11 +8,15 @@
             </div>
             <p>Email: {{ email }}</p>
             <p>Phone Number: {{ phone_number }}</p>
+            <!-- <button @click="editThisPerson">Edit</button> -->
+            <!-- <button @click="deleteThisPerson">Delete</button> -->
         </div>
     </div>
 </template>
 
 <script>
+// import { editPerson, deletePerson } from '../../services/database.js'
+
 export default {
     name: 'DetailedPerson',
     props: [
@@ -23,6 +27,14 @@ export default {
         'email',
         'phone_number'
     ],
+    methods: {
+        // editThisPerson() {
+        //     editPerson(this.id)
+        // },
+        // deleteThisPerson() {
+        //     deletePerson(this.id)
+        // }
+    }
 }
 
 </script>

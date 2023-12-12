@@ -24,6 +24,26 @@ export async function addPerson(first_name, last_name, relationship, email, phon
     );
     console.log('Person added');
 }
+export async function updatePerson(id, first_name, last_name, relationship, email, phone_number) {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // update person
+    await db.execute(
+        'UPDATE person SET first_name = ?, last_name = ?, relationship = ?, email = ?, phone_number = ? WHERE id = ?',
+        [first_name, last_name, relationship, email, phone_number, id]
+    );
+    console.log('Person updated');
+}
+export async function deletePerson(id) {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // delete person
+    await db.execute(
+        'DELETE FROM person WHERE id = ?',
+        [id]
+    );
+    console.log('Person deleted');
+}
 export async function getPeople() {
     // load database connection
     const db = await Database.load("sqlite:test.db");
