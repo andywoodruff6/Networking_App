@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { onMounted } from 'vue'
 import Sidebar from './components/sidebar/Sidebar.vue'
+import AddHistory from './components/addHistory/AddHistory.vue'
 import { checkAndCreateTables } from './services/database.js'; 
 
 onMounted(async () => {
@@ -15,6 +16,7 @@ onMounted(async () => {
     <Sidebar />
     <router-view />
 
+    <AddHistory />
   </div>
 </template>
 

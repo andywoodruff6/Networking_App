@@ -36,6 +36,22 @@
   display: flex;
   flex-direction: column;
 }
+.addHistory {
+  position: fixed;
+  margin: 20px;
+  bottom: 0;
+  right: 0;
+
+}
+.add-icon-link {
+  color: var(--dark-green);
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+}
+
 .active.icon-link {
   color: var(--light-green);
 }
