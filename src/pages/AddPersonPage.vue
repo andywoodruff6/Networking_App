@@ -2,6 +2,7 @@
 import { addPerson } from '../services/database.js';
 
 export default {
+  name: "AddPersonPage",
   data() {
     return {
       first_name: '',

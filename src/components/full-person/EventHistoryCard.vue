@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: 'EventHistoryCard',
     props: [
         'date',
         'topic',

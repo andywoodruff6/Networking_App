@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: 'TopLevelPerson',
     props: [
         'id',
         'first_name',

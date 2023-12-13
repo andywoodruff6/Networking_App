@@ -3,6 +3,10 @@ import { getPeople } from '../services/database.js'
 import TopLevelPerson from '../components/TopLevelPerson.vue'
 
 export default {
+  name: "NetworkPage",
+  components: {
+    TopLevelPerson,
+  },
   data() {
     return {
       people: [],
@@ -20,9 +24,7 @@ export default {
       }
     },
   },
-  components: {
-    TopLevelPerson,
-  },
+  
 };
 </script>
 

@@ -4,6 +4,9 @@ import EventHistoryCard from './EventHistoryCard.vue'
 
 export default {
     name: 'DetailedHistory',
+    components: {
+        EventHistoryCard,
+    },
     props: [
         'id',
     ],
@@ -23,9 +26,6 @@ export default {
                 console.error(error);
             }
         },
-    },
-    components: {
-        EventHistoryCard,
     },
 }
 </script>
