@@ -1,13 +1,3 @@
-<template>
-    <div class="addHistory">
-        <AddHistoryForm v-if="showModal"  @close="showModal = false"/>
-
-        <button class="add-icon-link" @click="openMe()">
-            <i class="fa-solid fa-square-plus fa-2xl" />
-        </button>
-    </div>
-</template>
-    
 <script>
 import AddHistoryForm from './AddHistoryForm.vue';
 
@@ -36,6 +26,16 @@ export default {
 }
 </script>
 
+<template>
+    <div class="addHistory">
+        <AddHistoryForm v-if="showModal"  @close="showModal = false"/>
+
+        <button class="add-icon-link" @click="openMe()">
+            <i class="fa-solid fa-square-plus fa-2xl" />
+        </button>
+    </div>
+</template>
+    
 <style scoped>
 /* Add your styles here */
 </style>

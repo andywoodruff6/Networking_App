@@ -1,3 +1,34 @@
+<script>
+import { addPerson } from '../services/database.js';
+
+export default {
+  data() {
+    return {
+      first_name: '',
+      last_name: '',
+      relationship: '',
+      email: '',
+      phone_number: ''
+    }
+  },
+  methods: {
+    async submitForm() {
+      try {
+        addPerson(
+          this.first_name,
+          this.last_name,
+          this.relationship,
+          this.email,
+          this.phone_number
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+}
+</script>
+
 <template >
   <div class="addPersonPage">
     <h1>addPerson</h1>
@@ -35,36 +66,4 @@
   </div>
 </template>
 
-<script>
-import { addPerson } from '../services/database.js';
-
-export default {
-  data() {
-    return {
-      first_name: '',
-      last_name: '',
-      relationship: '',
-      email: '',
-      phone_number: ''
-    }
-  },
-  methods: {
-    async submitForm() {
-      try {
-        addPerson(
-          this.first_name, 
-          this.last_name, 
-          this.relationship, 
-          this.email, 
-          this.phone_number
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
-}
-</script>
-
-<style scoped>
-</style>
+<style></style>
