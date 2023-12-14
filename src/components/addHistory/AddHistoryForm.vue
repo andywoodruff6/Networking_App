@@ -47,7 +47,6 @@ export default {
 
 <template>
     <div>
-        <p>AddHistoryForm</p>
         <!-- Begin Form -->
         <div class="input-block">
             <div class="input-card">
@@ -59,15 +58,15 @@ export default {
                     </option>
                 </select>
             </div>
-
-            <div class="input-card">
-                <label for="topic">Topic</label>
-                <input type="text" id="topic" v-model="topic" />
-            </div>
             <div class="input-card">
                 <label for="contact_platform">Contact Platform</label>
-                <input type="text" id="contact_platform" v-model="contact_platform" />
+                <input type="text" id="contact_platform" v-model="contact_platform" placeholder="How?" />
             </div>
+            <div class="input-card">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" v-model="topic" placeholder="Conversation Notes" />
+            </div>
+            
             <div>
                 <button class="button" @click="SubmitEvent">Add Event</button>
             </div>
@@ -77,8 +76,4 @@ export default {
     </div>
 </template>
 
-
-
-<style scoped>
-/* Your style code here */
-</style>
+<style scoped></style>

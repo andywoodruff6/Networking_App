@@ -24,23 +24,31 @@ export default {
       }
     },
   },
-  
+
 };
 </script>
 
 <template>
-  <div class="addPersonPage">
+  <div class="relationshipPage">
+    <div class="display-name">
+      <h2>Network</h2>
       <div v-for="person in people" :key="person.id">
-        <TopLevelPerson
-          :first_name="person.first_name"
-          :last_name="person.last_name"
+        <TopLevelPerson 
+          :first_name="person.first_name" 
+          :last_name="person.last_name" 
           :id="person.id"
-          :relationship="person.relationship"
-          :phone_number="person.phone_number"
-          :email="person.email"
-          />
+          :relationship="person.relationship" 
+          :phone_number="person.phone_number" 
+          :email="person.email" 
+        />
       </div>
+    </div>
+    <!-- <div>
+      Hello
+    </div> -->
   </div>
 </template>
 
-<style></style>
+<style>
+
+</style>

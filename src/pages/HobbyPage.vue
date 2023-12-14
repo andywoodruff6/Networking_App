@@ -29,10 +29,13 @@ export default {
 </script>
 
 <template>
-  <div class="addPersonPage">
+  <div class="relationshipPage">
+    <div class="display-name">
+      <h2>Hobbies</h2>
     <div v-for="person in people" :key="person.id">
       <TopLevelPerson :first_name="person.first_name" :last_name="person.last_name" :id="person.id" />
     </div>
+    </div>  
   </div>
 </template>
 

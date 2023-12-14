@@ -23,15 +23,15 @@ export default {
             phone_number: phone_number
         },
     }">
-        <div class="display-name">
-            {{ first_name }} {{ last_name }} {{ id }}
-        </div>
+        <h3>
+            {{ first_name }} {{ last_name }}
+        </h3>
     </router-link>
 </template>
 
 <style scoped>
-.display-name {
+/* .display-name {
     color: white;
     text-decoration: none;
-}
+} */
 </style>

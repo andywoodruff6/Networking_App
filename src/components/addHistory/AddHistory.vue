@@ -37,5 +37,8 @@ export default {
 </template>
     
 <style scoped>
-/* Add your styles here */
+.addHistory {
+    background-color: var(--dark-green);
+    border-radius: 5px;
+}
 </style>

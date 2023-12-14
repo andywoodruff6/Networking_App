@@ -29,7 +29,9 @@ export default {
 </script>
 
 <template>
-  <div class="addPersonPage">
+  <div class="relationshipPage">
+    <div class="display-name">
+      <h2>Friends</h2>
       <div v-for="person in people" :key="person.id">
         <TopLevelPerson
           :first_name="person.first_name"
@@ -37,6 +39,7 @@ export default {
           :id="person.id"
           />
       </div>
+    </div>
   </div>
 </template>
 

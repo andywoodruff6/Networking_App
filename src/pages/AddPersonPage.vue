@@ -32,7 +32,7 @@ export default {
 
 <template >
   <div class="addPersonPage">
-    <h1>addPerson</h1>
+    <h2>Add a Connection</h2>
 
     <div class="input-block">
       <div class="input-card">
@@ -61,7 +61,7 @@ export default {
         <input type="text" id="phone_number" v-model="phone_number" />
       </div>
       <div>
-        <button class="button" @click.prevent="submitForm">Add Person</button>
+        <button @click="submitForm">Add Person</button>
       </div>
     </div>
   </div>
