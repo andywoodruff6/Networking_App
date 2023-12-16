@@ -67,13 +67,17 @@ export default {
                 <input type="text" id="topic" v-model="topic" placeholder="Conversation Notes" />
             </div>
             
-            <div>
+            <div class="add-history-form-button">
                 <button class="button" @click="SubmitEvent">Add Event</button>
             </div>
         </div>
         <!-- End Form -->
-        <button @click="closeMe()">Close</button>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.add-history-form-button {
+    display: flex;
+    justify-content: right;
+}
+</style>

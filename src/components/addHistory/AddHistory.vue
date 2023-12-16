@@ -13,8 +13,14 @@ export default {
     },
     methods: {
         openMe() {
-            console.log('openMe');
+            // console.log('openMe');
             this.showModal = true;
+            document.addEventListener('click', this.handleOutsideClick);
+        },
+        closeMe() {
+            // console.log('closeMe');
+            this.showModal = false;
+            document.removeEventListener('click', this.handleOutsideClick);
         },
         handleOutsideClick(e) {
             const formElement = this.$refs.addHistoryForm.$el;
@@ -28,9 +34,9 @@ export default {
 
 <template>
     <div class="addHistory">
-        <AddHistoryForm v-if="showModal"  @close="showModal = false"/>
+        <AddHistoryForm ref="addHistoryForm" v-if="showModal"  @close="showModal = false"/>
 
-        <button class="add-icon-link" @click="openMe()">
+        <button class="add-icon-link" @click.stop="openMe()">
             <i class="fa-solid fa-square-plus fa-2xl" />
         </button>
     </div>
