@@ -48,7 +48,7 @@ export async function getPeople() {
     // load database connection
     const db = await Database.load("sqlite:test.db");
     // get people
-    const people = await db.select('SELECT * FROM person');
+    const people = await db.select('SELECT * FROM person');   
     return people;
 }
 export async function getPeopleByRelationship(relationship) {
@@ -73,5 +73,18 @@ export async function getHistory(id) {
     const db = await Database.load("sqlite:test.db");
     // get history
     const history = await db.select('SELECT * FROM history WHERE person_id = $1', [id]);
+    console.log("before:",history);
+    history.forEach(item => {
+        item.date = timestampToDate(item.date);
+    });
+    console.log("after:",history);
     return history;
+}
+
+function timestampToDate(timestamp) {
+    const date = new Date(timestamp);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}-${day}-${year}`;
 }

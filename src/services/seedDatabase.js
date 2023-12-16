@@ -31,44 +31,44 @@ export async function seedDatabase() {
 
     //--------------------
     // add history alice
-    await addHistory(1, 1702182224, 'coffee', 'zoom');
-    await addHistory(1, 1702172224, 'beer', 'email');
-    await addHistory(1, 1702162224, 'pizza', 'text');
-    await addHistory(1, 1702152224, 'tea', 'zoom');
-    await addHistory(1, 1702142224, 'wine', 'zoom');
+    await addHistory(1, 1702182224000, 'coffee', 'zoom');
+    await addHistory(1, 1702172224000, 'beer', 'email');
+    await addHistory(1, 1702162224000, 'pizza', 'text');
+    await addHistory(1, 1702152224000, 'tea', 'zoom');
+    await addHistory(1, 1702142224000, 'wine', 'zoom');
 
     //--------------------
     // add history bob
-    await addHistory(2, 1702182224, 'coffee', 'zoom');
-    await addHistory(2, 1702172224, 'beer', 'email');
-    await addHistory(2, 1702162224, 'pizza', 'text');
-    await addHistory(2, 1702152224, 'tea', 'zoom');
-    await addHistory(2, 1702142224, 'wine', 'zoom');
+    await addHistory(2, 1702182224000, 'coffee', 'zoom');
+    await addHistory(2, 1702172224000, 'beer', 'email');
+    await addHistory(2, 1702162224000, 'pizza', 'text');
+    await addHistory(2, 1702152224000, 'tea', 'zoom');
+    await addHistory(2, 1702142224000, 'wine', 'zoom');
 
     //--------------------
     // add history charlie
-    await addHistory(3, 1702182224, 'coffee', 'zoom');
-    await addHistory(3, 1702172224, 'beer', 'email');
-    await addHistory(3, 1702162224, 'pizza', 'text');
-    await addHistory(3, 1702152224, 'tea', 'zoom');
-    await addHistory(3, 1702142224, 'wine', 'zoom');
+    await addHistory(3, 1702182224000, 'coffee', 'zoom');
+    await addHistory(3, 1702172224000, 'beer', 'email');
+    await addHistory(3, 1702162224000, 'pizza', 'text');
+    await addHistory(3, 1702152224000, 'tea', 'zoom');
+    await addHistory(3, 1702142224000, 'wine', 'zoom');
 
     //--------------------
     // add history dave
-    await addHistory(4, 1702182224, 'coffee', 'zoom');
-    await addHistory(4, 1702172224, 'beer', 'email');
-    await addHistory(4, 1702162224, 'pizza', 'text');
-    await addHistory(4, 1702152224, 'tea', 'zoom');
-    await addHistory(4, 1702142224, 'wine', 'zoom');
+    await addHistory(4, 1702182224000, 'coffee', 'zoom');
+    await addHistory(4, 1702172224000, 'beer', 'email');
+    await addHistory(4, 1702162224000, 'pizza', 'text');
+    await addHistory(4, 1702152224000, 'tea', 'zoom');
+    await addHistory(4, 1702142224000, 'wine', 'zoom');
 
     //--------------------
     // add history eve
-    await addHistory(5, 1702182224, 'coffee', 'zoom');
-    await addHistory(5, 1702172224, 'beer', 'email');
-    await addHistory(5, 1702162224, 'pizza', 'text');
-    await addHistory(5, 1702152224, 'tea', 'zoom');
-    await addHistory(5, 1702142224, 'wine', 'zoom');
+    await addHistory(5, 1702182224000, 'coffee', 'zoom');
+    await addHistory(5, 1702172224000, 'beer', 'email');
+    await addHistory(5, 1702162224000, 'pizza', 'text');
+    await addHistory(5, 1702152224000, 'tea', 'zoom');
+    await addHistory(5, 1702142224000, 'wine', 'zoom');
 
-    //--------------------
+    //--------------------`
     console.log('done seeding database');
 }
