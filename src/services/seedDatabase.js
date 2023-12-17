@@ -39,7 +39,7 @@ export async function seedDatabase() {
 
     //--------------------
     // add history bob
-    await addHistory(2, 1702182224000, 'coffee', 'zoom');
+    await addHistory(2, 1702282224000, 'coffee', 'zoom');
     await addHistory(2, 1702172224000, 'beer', 'email');
     await addHistory(2, 1702162224000, 'pizza', 'text');
     await addHistory(2, 1702152224000, 'tea', 'zoom');
@@ -47,7 +47,7 @@ export async function seedDatabase() {
 
     //--------------------
     // add history charlie
-    await addHistory(3, 1702182224000, 'coffee', 'zoom');
+    await addHistory(3, 1702382224000, 'coffee', 'zoom');
     await addHistory(3, 1702172224000, 'beer', 'email');
     await addHistory(3, 1702162224000, 'pizza', 'text');
     await addHistory(3, 1702152224000, 'tea', 'zoom');
@@ -55,7 +55,7 @@ export async function seedDatabase() {
 
     //--------------------
     // add history dave
-    await addHistory(4, 1702182224000, 'coffee', 'zoom');
+    await addHistory(4, 1702482224000, 'coffee', 'zoom');
     await addHistory(4, 1702172224000, 'beer', 'email');
     await addHistory(4, 1702162224000, 'pizza', 'text');
     await addHistory(4, 1702152224000, 'tea', 'zoom');
@@ -63,7 +63,7 @@ export async function seedDatabase() {
 
     //--------------------
     // add history eve
-    await addHistory(5, 1702182224000, 'coffee', 'zoom');
+    await addHistory(5, 1702582224000, 'coffee', 'zoom');
     await addHistory(5, 1702172224000, 'beer', 'email');
     await addHistory(5, 1702162224000, 'pizza', 'text');
     await addHistory(5, 1702152224000, 'tea', 'zoom');
