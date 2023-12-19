@@ -67,4 +67,16 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.addPersonPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* border: 1px solid red; */
+}
+.input-block {
+  width: 100%;
+}
+</style>

@@ -45,6 +45,6 @@ export default {
 <style scoped>
 .addHistory {
     background-color: var(--dark-green);
-    border-radius: 5px;
+    border-radius: 0.5rem;
 }
 </style>
