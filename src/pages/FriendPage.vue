@@ -37,6 +37,9 @@ export default {
           :first_name="person.first_name"
           :last_name="person.last_name"
           :id="person.id"
+          :relationship="person.relationship" 
+          :phone_number="person.phone_number" 
+          :email="person.email" 
           />
       </div>
     </div>

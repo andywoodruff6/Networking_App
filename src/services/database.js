@@ -73,11 +73,11 @@ export async function getHistoryById(id) {
     const db = await Database.load("sqlite:test.db");
     // get history
     const history = await db.select('SELECT * FROM history WHERE person_id = $1 ORDER BY date DESC', [id]);
-    console.log("before:",history);
+    // console.log("before:",history);
     history.forEach(item => {
         item.date = timestampToDate(item.date);
     });
-    console.log("after:",history);
+    // console.log("after:",history);
     return history;
 }
 
