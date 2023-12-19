@@ -14,6 +14,8 @@ export async function checkAndCreateTables() {
     );
     // maybe future check relationship table
 }
+// person functions
+// -------------------------------------------
 export async function addPerson(first_name, last_name, relationship, email, phone_number) {
     // load database connection
     const db = await Database.load("sqlite:test.db");
@@ -58,6 +60,8 @@ export async function getPeopleByRelationship(relationship) {
     const people = await db.select('SELECT * FROM person WHERE relationship = $1', [relationship]);
     return people;
 }
+// history functions
+// -------------------------------------------
 export async function addHistory(person_id, date, topic, contact_platform) {
     // load database connection
     const db = await Database.load("sqlite:test.db");
@@ -81,6 +85,47 @@ export async function getHistoryById(id) {
     return history;
 }
 
+// calendar functions
+// -------------------------------------------
+export async function testDBCalendar() {
+    // load database connection
+    const db = await Database.load("sqlite:test.db");
+    // create join table
+    const calendarArray = await db.select(
+    'SELECT person.id, person.first_name, person.last_name, person.relationship, MAX(history.date) as max_date, history.topic, history.contact_platform FROM person INNER JOIN history ON person.id = history.person_id GROUP BY person.id')
+    console.log(calendarArray);
+
+    calendarArray.forEach(item => {
+        switch (item.relationship) {
+            case 'friend':
+                item.max_date = item.max_date + (1000 * 60 * 60 * 24 * 7 * 1) // 1 week
+                // console.log("friend triggered")
+                break;
+            case 'hobby':
+                item.max_date = item.max_date + (1000 * 60 * 60 * 24 * 7 * 4) // 4 weeks
+                // console.log("hobby triggered")
+                break;
+            case 'work':
+                item.max_date = item.max_date + (1000 * 60 * 60 * 24 * 7 * 13) // 13 weeks
+                // console.log("work triggered")
+                break;
+            default:
+                item.max_date = item.max_date + (1000 *  60 * 60 * 24 * 7 * 4) // 4 weeks
+                // console.log("default triggered")
+            }
+    })
+    // need to sort the Array by max_date
+    calendarArray.sort((a, b) => a.max_date - b.max_date);
+
+    calendarArray.forEach(item => {
+        item.max_date = timestampToDate(item.max_date);
+    })
+
+    return calendarArray;
+}
+
+
+// helper functions
 function timestampToDate(timestamp) {
     const date = new Date(timestamp);
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
