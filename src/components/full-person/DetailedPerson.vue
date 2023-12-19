@@ -12,6 +12,7 @@ export default {
         'phone_number'
     ],
     methods: {
+
         // editThisPerson() {
         //     editPerson(this.id)
         // },
@@ -24,18 +25,26 @@ export default {
 
 <template>
     <div>
-        <h3>{{ first_name }} {{ last_name }}</h3>
-        <div>
+        <h2>{{ first_name }} {{ last_name }}</h2>
+        <div class="detailed-person-view">
             <div>
-                <p>Relationship:</p>
                 <p>{{ relationship }}</p>
             </div>
             <p>Email: {{ email }}</p>
-            <p>Phone Number: {{ phone_number }}</p>
+            <p>Phone: {{ phone_number }}</p>
             <!-- <button @click="editThisPerson">Edit</button> -->
             <!-- <button @click="deleteThisPerson">Delete</button> -->
         </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.detailed-person-view {
+    border: 1px solid var(--brunswick-green);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+}
+</style>

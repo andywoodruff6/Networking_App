@@ -21,7 +21,6 @@ export default {
 
 <template>
     <div class="addPersonPage">
-        <div>Full Person Info</div>
         <div class="detailedPage">
             <DetailedPerson :first_name="first_name" :last_name="last_name" :id="id" :relationship="relationship"
                 :phone_number="phone_number" :email="email" />

@@ -68,11 +68,11 @@ export async function addHistory(person_id, date, topic, contact_platform) {
     );
     console.log('History added');
 }
-export async function getHistory(id) {
+export async function getHistoryById(id) {
     // load database connection
     const db = await Database.load("sqlite:test.db");
     // get history
-    const history = await db.select('SELECT * FROM history WHERE person_id = $1', [id]);
+    const history = await db.select('SELECT * FROM history WHERE person_id = $1 ORDER BY date DESC', [id]);
     console.log("before:",history);
     history.forEach(item => {
         item.date = timestampToDate(item.date);
