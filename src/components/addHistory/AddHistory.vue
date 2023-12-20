@@ -34,7 +34,7 @@ export default {
 
 <template>
     <div class="addHistory">
-        <AddHistoryForm ref="addHistoryForm" v-if="showModal"  @close="showModal = false"/>
+        <AddHistoryForm ref="addHistoryForm" v-if="showModal"  @close="closeMe()"/>
 
         <button class="add-icon-link" @click.stop="openMe()">
             <i class="fa-solid fa-square-plus fa-2xl" />
