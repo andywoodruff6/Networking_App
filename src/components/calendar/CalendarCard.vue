@@ -16,7 +16,10 @@ export default {
     <div class="calendar-card">
         <div class="calendar-card-name">{{ first_name }} {{ last_name }}</div>
         <div class="calendar-card-date">{{ max_date }}</div>
-        <div class="calendar-card-topic">{{ topic }}</div>
+        <div class="calendar-card-topic">
+            <div>Last Topic:</div>
+            {{ topic }}
+        </div>
     </div>
 </template>
 
