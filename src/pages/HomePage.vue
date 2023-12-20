@@ -44,7 +44,7 @@ export default {
 <template>
   <div class="homePage">
     <h1 class="div1">Welcome to Connecti</h1>
-    <div class="div2">
+    <div class="div2 calendar-card-home">
       <CalendarCard 
         :first_name="lowestDateArray.first_name" 
         :last_name="lowestDateArray.last_name"
@@ -55,7 +55,7 @@ export default {
       />
         
     </div>
-    <div class="div3">
+    <div class="div3 calendar-card-home">
       <CalendarCard 
         :first_name="secondLowestDateArray.first_name" 
         :last_name="secondLowestDateArray.last_name"  
@@ -65,9 +65,18 @@ export default {
         :contact_platform="secondLowestDateArray.contact_platform" 
       />
     </div>
-    <div class="div4 toolTip">You can add a new connection by selecting the plus person icon to the left</div>
-    <div class="div5 toolTip">Select the Friends, Work or Hobby icons to see just that group.</div>
-    <div class="div6 toolTip">Click the plus in the bottom right to add a contact event.</div>
+    <div class="div4 toolTip">
+      <div>Tool Tip:</div>
+      Add new connection with the person plus icon.
+    </div>
+    <div class="div5 toolTip">
+      <div>Tool Tip:</div>
+      Friends, Work or Hobby icons show just that group.
+    </div>
+    <div class="div6 toolTip">
+      <div>Tool Tip:</div>
+      Click the plus in the bottom right to add a contact event.
+    </div>
   </div>
 </template>
 
@@ -75,13 +84,17 @@ export default {
 .homePage {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 25% 1fr 13%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  height: 90vh;
 }
 
 .toolTip {
   padding: 7%;
+}
+.calendar-card-home {
+  margin: 0.5rem;
 }
 
 .div1 {
