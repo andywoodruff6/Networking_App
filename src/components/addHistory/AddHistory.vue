@@ -36,7 +36,11 @@ export default {
     <div class="addHistory">
         <AddHistoryForm ref="addHistoryForm" v-if="showModal"  @close="closeMe()"/>
 
-        <button class="add-icon-link" @click.stop="openMe()">
+        <button 
+            class="add-icon-link" 
+            :class="{'add-icon-link-active': showModal}" 
+            @click.stop="openMe()"
+        >
             <i class="fa-solid fa-square-plus fa-2xl" />
         </button>
     </div>
@@ -44,6 +48,13 @@ export default {
     
 <style scoped>
 .addHistory {
+    background-color: var(--dark-green);
+    border-radius: 0.5rem;
+}
+.add-icon-link {
+    background-color: var(--tan);
+}
+.add-icon-link-active {
     background-color: var(--dark-green);
     border-radius: 0.5rem;
 }
