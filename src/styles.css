@@ -7,9 +7,11 @@
 /* Color Variables */
   color: #0f0f0f;
   background-color: var(--tan);
+  --brunswick-green: #344E41;
   --dark-green: #588157;
   --light-green: #a3b18a;
   --tan: #dad7cd;
+  --white: #ffffff;
   --orange: #ff4a1c;
 
 
@@ -19,22 +21,38 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+button {
+  background-color: var(--brunswick-green);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5vh;
 
-.sidebar {
-  color: var(--tan);
+}
+button:hover {
   background-color: var(--dark-green);
-
-  float: left;
-  position: fixed;
-  /* z-index: 1; */
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 0.5em;
-  max-width: 150px;
-
+}
+h1 {
+  text-align: center;
+}
+h3 {
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+.display-name {
+  grid-column: 1;
+  text-align: left;
+  border: 1px solid var(--dark-green);
+  padding-left: 5px;
+}
+.add-icon-link {
+  color: var(--dark-green);
+  /* padding: 0.5em; */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
 }
 .active.icon-link {
   color: var(--light-green);
@@ -54,58 +72,20 @@
   padding: 20px;
   margin: 20px;
   text-align: left;
-
-  border: 1px solid red;
-}
-
-.addPersonPage {
-  border: 1px solid blue;
-  order: 2;
-  margin-left: 100px;
 }
 .input-card {
   display: flex;
   flex-direction: column;
   margin: 0 0 1rem 0;
 }
-
-.container {
-  margin: 0;
-  padding-top: 10vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
 .row {
   display: flex;
   justify-content: center;
 }
-
-h1 {
-  text-align: center;
-}
-.button {
-  background-color: var(--orange);
-  border: none;
-  color: var(--tan);
-  padding: 0.5rem 1rem;
-}
-
-#greet-input {
-  margin-right: 5px;
+.relationshipPage {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr;
 }
 
 @media (prefers-color-scheme: dark) {

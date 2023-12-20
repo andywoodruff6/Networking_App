@@ -42,8 +42,8 @@
         "width": 1000,
         "height": 800,
         "center": true,
-        "minWidth": 400,
-        "minHeight": 300,
+        "minWidth": 500,
+        "minHeight": 400,
         "maxWidth": 1000,
         "maxHeight": 800
 

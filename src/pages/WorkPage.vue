@@ -3,7 +3,7 @@ import { getPeopleByRelationship } from '../services/database.js'
 import TopLevelPerson from '../components/TopLevelPerson.vue'
 
 export default {
-  name: "HobbyPage",
+  name: "WorkPage",
   components: {
     TopLevelPerson,
   },
@@ -18,7 +18,7 @@ export default {
   methods: {
     async fetchPeople() {
       try {
-        this.people = await getPeopleByRelationship("hobby");
+        this.people = await getPeopleByRelationship("work");
       } catch (error) {
         console.error(error);
       }
@@ -31,18 +31,18 @@ export default {
 <template>
   <div class="relationshipPage">
     <div class="display-name">
-      <h2>Hobbies</h2>
-    <div v-for="person in people" :key="person.id">
-      <TopLevelPerson 
-      :first_name="person.first_name" 
-      :last_name="person.last_name" 
-      :id="person.id"
-      :relationship="person.relationship" 
-      :phone_number="person.phone_number" 
-      :email="person.email" 
-      />
-    </div>
-    </div>  
+      <h2>Work</h2>
+      <div v-for="person in people" :key="person.id">
+        <TopLevelPerson
+          :first_name="person.first_name"
+          :last_name="person.last_name"
+          :id="person.id"
+          :relationship="person.relationship" 
+          :phone_number="person.phone_number" 
+          :email="person.email" 
+          />
+      </div>
+      </div>
   </div>
 </template>
 

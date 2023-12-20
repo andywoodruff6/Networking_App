@@ -1,19 +1,12 @@
-<template>
-    <div v-for="event in history" :key="event.id">
-        <EventHistoryCard
-            :date="event.date"
-            :topic="event.topic"
-            :contact_platform="event.contact_platform"
-        />
-    </div>
-</template>
-
 <script>
-import {getHistory} from '../../services/database.js'
+import { getHistoryById } from '../../services/database.js'
 import EventHistoryCard from './EventHistoryCard.vue'
 
 export default {
     name: 'DetailedHistory',
+    components: {
+        EventHistoryCard,
+    },
     props: [
         'id',
     ],
@@ -28,16 +21,31 @@ export default {
     methods: {
         async fetchHistory() {
             try {
-                this.history = await getHistory(this.id);
+                this.history = await getHistoryById(this.id);
             } catch (error) {
                 console.error(error);
             }
         },
     },
-    components: {
-        EventHistoryCard,
-    },
 }
 </script>
 
-<style scoped></style>
+<template>
+    <div class="detailed-history-view">
+        <div v-for="event in history" :key="event.id">
+            <EventHistoryCard 
+                :date="event.date" 
+                :topic="event.topic" 
+                :contact_platform="event.contact_platform" 
+            />
+        </div>
+    </div>
+</template>
+
+
+
+<style scoped>
+.detailed-history-view {
+    margin-left: 1.5rem;
+}
+</style>

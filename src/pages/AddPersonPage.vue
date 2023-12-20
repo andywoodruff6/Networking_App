@@ -1,6 +1,44 @@
+<script>
+import { addPerson } from '../services/database.js';
+
+export default {
+  name: "AddPersonPage",
+  data() {
+    return {
+      first_name: '',
+      last_name: '',
+      relationship: '',
+      email: '',
+      phone_number: ''
+    }
+  },
+  methods: {
+    async submitForm() {
+      try {
+        addPerson(
+          this.first_name,
+          this.last_name,
+          this.relationship,
+          this.email,
+          this.phone_number
+        );
+        // Reset form data
+        this.first_name = '';
+        this.last_name = '';
+        this.relationship = '';
+        this.email = '';
+        this.phone_number = '';
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+}
+</script>
+
 <template >
   <div class="addPersonPage">
-    <h1>addPerson</h1>
+    <h2>Add a Connection</h2>
 
     <div class="input-block">
       <div class="input-card">
@@ -29,42 +67,23 @@
         <input type="text" id="phone_number" v-model="phone_number" />
       </div>
       <div>
-        <button class="button" @click.prevent="submitForm">Add Person</button>
+        <button class="button" @click="submitForm">Add Person</button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import { addPerson } from '../services/database.js';
-
-export default {
-  data() {
-    return {
-      first_name: '',
-      last_name: '',
-      relationship: '',
-      email: '',
-      phone_number: ''
-    }
-  },
-  methods: {
-    async submitForm() {
-      try {
-        addPerson(
-          this.first_name, 
-          this.last_name, 
-          this.relationship, 
-          this.email, 
-          this.phone_number
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
-}
-</script>
-
 <style scoped>
+.addPersonPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* border: 1px solid red; */
+}
+
+.input-block {
+  width: 100%;
+}
 </style>
