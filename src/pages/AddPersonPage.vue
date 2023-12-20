@@ -22,6 +22,12 @@ export default {
           this.email,
           this.phone_number
         );
+        // Reset form data
+        this.first_name = '';
+        this.last_name = '';
+        this.relationship = '';
+        this.email = '';
+        this.phone_number = '';
       } catch (error) {
         console.error(error);
       }
@@ -61,7 +67,7 @@ export default {
         <input type="text" id="phone_number" v-model="phone_number" />
       </div>
       <div>
-        <button @click="submitForm">Add Person</button>
+        <button class="button" @click="submitForm">Add Person</button>
       </div>
     </div>
   </div>
@@ -76,6 +82,7 @@ export default {
 
   /* border: 1px solid red; */
 }
+
 .input-block {
   width: 100%;
 }

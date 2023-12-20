@@ -1,6 +1,6 @@
 <script >
 import CalendarCard from '../components/calendar/CalendarCard.vue';
-import { testDBCalendar, calendarByPosition } from '../services/database';
+import { testDBCalendar, calendarByPosition } from '../services/database.js';
 
 export default {
   name: 'homePage',

@@ -1,8 +1,9 @@
 import Database from "tauri-plugin-sql-api";
+const PROD_DB = "sqlite:prod.db";
 
 export async function checkAndCreateTables() {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
 
     // check person table
     await db.execute(
@@ -18,7 +19,7 @@ export async function checkAndCreateTables() {
 // -------------------------------------------
 export async function addPerson(first_name, last_name, relationship, email, phone_number) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // add person
     await db.execute(
         'INSERT INTO person (first_name, last_name, relationship, email, phone_number) VALUES (?,?,?,?,?)',
@@ -28,7 +29,7 @@ export async function addPerson(first_name, last_name, relationship, email, phon
 }
 export async function updatePerson(id, first_name, last_name, relationship, email, phone_number) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // update person
     await db.execute(
         'UPDATE person SET first_name = ?, last_name = ?, relationship = ?, email = ?, phone_number = ? WHERE id = ?',
@@ -38,7 +39,7 @@ export async function updatePerson(id, first_name, last_name, relationship, emai
 }
 export async function deletePerson(id) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // delete person
     await db.execute(
         'DELETE FROM person WHERE id = ?',
@@ -48,14 +49,14 @@ export async function deletePerson(id) {
 }
 export async function getPeople() {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // get people
     const people = await db.select('SELECT * FROM person');   
     return people;
 }
 export async function getPeopleByRelationship(relationship) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // get people
     const people = await db.select('SELECT * FROM person WHERE relationship = $1', [relationship]);
     return people;
@@ -64,7 +65,7 @@ export async function getPeopleByRelationship(relationship) {
 // -------------------------------------------
 export async function addHistory(person_id, date, topic, contact_platform) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // add history
     await db.execute(
         'INSERT INTO history (person_id, date, topic, contact_platform) VALUES (?,?,?,?)',
@@ -74,7 +75,7 @@ export async function addHistory(person_id, date, topic, contact_platform) {
 }
 export async function getHistoryById(id) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // get history
     const history = await db.select('SELECT * FROM history WHERE person_id = $1 ORDER BY date DESC', [id]);
     // console.log("before:",history);
@@ -89,7 +90,7 @@ export async function getHistoryById(id) {
 // -------------------------------------------
 export async function testDBCalendar() {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // create join table
     const calendarArray = await db.select(
     'SELECT person.id, person.first_name, person.last_name, person.relationship, MAX(history.date) as max_date, history.topic, history.contact_platform FROM person INNER JOIN history ON person.id = history.person_id GROUP BY person.id')
@@ -125,7 +126,7 @@ export async function testDBCalendar() {
 }
 export async function calendarByPosition(position) {
     // load database connection
-    const db = await Database.load("sqlite:test.db");
+    const db = await Database.load(PROD_DB);
     // create join table
     const calendarArray = await db.select(
     'SELECT person.id, person.first_name, person.last_name, person.relationship, MAX(history.date) as max_date, history.topic, history.contact_platform FROM person INNER JOIN history ON person.id = history.person_id GROUP BY person.id')
