@@ -1,5 +1,5 @@
 import Database from "tauri-plugin-sql-api";
-const PROD_DB = "sqlite:prod.db";
+const PROD_DB = "sqlite:test.db";
 
 export async function checkAndCreateTables() {
     // load database connection
