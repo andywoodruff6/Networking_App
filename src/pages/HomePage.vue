@@ -9,24 +9,14 @@ export default {
   },
   data() {
     return {
-      calendarArray: [],
       lowestDateArray: [],
       secondLowestDateArray: [],
     };
   },
   mounted() {
-    this.fetchCalendar();
     this.fetchCalendarByPosition();
   },
   methods: {
-    async fetchCalendar() {
-      try {
-        this.calendarArray = await testDBCalendar();
-
-      } catch (error) {
-        console.error(error);
-      }
-    },
     // need to grab just the lowest date
     async fetchCalendarByPosition() {
       try {
