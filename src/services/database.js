@@ -93,7 +93,7 @@ export async function testDBCalendar() {
     const db = await Database.load(PROD_DB);
     // create join table
     const calendarArray = await db.select(
-    'SELECT person.id, person.first_name, person.last_name, person.relationship, MAX(history.date) as max_date, history.topic, history.contact_platform FROM person INNER JOIN history ON person.id = history.person_id GROUP BY person.id')
+    'SELECT person.id, person.first_name, person.last_name, person.relationship, MAX(history.date) as max_date, history.date, history.topic, history.contact_platform FROM person INNER JOIN history ON person.id = history.person_id GROUP BY person.id')
     console.log(calendarArray);
 
     calendarArray.forEach(item => {
@@ -122,6 +122,7 @@ export async function testDBCalendar() {
         item.max_date = timestampToDate(item.max_date);
     })
 
+    console.log(calendarArray);
     return calendarArray;
 }
 export async function calendarByPosition(position) {
@@ -133,6 +134,8 @@ export async function calendarByPosition(position) {
     console.log(calendarArray);
 
     calendarArray.forEach(item => {
+        item.max_date = Number(item.max_date);
+
         switch (item.relationship) {
             case 'friend':
                 item.max_date = item.max_date + (1000 * 60 * 60 * 24 * 7 * 1) // 1 week
