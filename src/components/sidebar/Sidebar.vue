@@ -1,16 +1,16 @@
 <script>
-// import { seedDatabase } from '../../services/seedDatabase.js'
+import { seedDatabase } from '../../services/seedDatabase.js'
 
 export default {
   name: 'Sidebar',
   methods: {
-    // async seedTheDatabase() {
-    //   try {
-    //     await seedDatabase();
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
+    async seedTheDatabase() {
+      try {
+        await seedDatabase();
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
 }
 </script>
@@ -38,11 +38,11 @@ export default {
     <router-link to="/addPerson" class="icon-link" active-class="active">
       <i class="fa-solid fa-user-plus fa-2xl" />
     </router-link>
-    <!-- <div class="seed-button">
+    <div class="seed-button">
       <button class="icon-link" @click="seedTheDatabase">
         Seed Database
       </button>
-    </div> -->
+    </div>
   </div>
 </template>
 
