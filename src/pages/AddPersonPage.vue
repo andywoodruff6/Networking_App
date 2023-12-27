@@ -1,5 +1,6 @@
 <script>
 import { addPerson } from '../services/database.js';
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/api/notification';
 
 export default {
   name: "AddPersonPage",
@@ -22,12 +23,25 @@ export default {
           this.email,
           this.phone_number
         );
+
+        // send notification
+        let permissionGranted = await isPermissionGranted();
+        console.log("permission is:", permissionGranted)
+        if (!permissionGranted) {
+          const permission = await requestPermission();
+          permissionGranted = permission === 'granted';
+        }
+        if (permissionGranted) {
+          sendNotification({ title: 'Add Connection Successful', body: 'Check the network tab to see your new connection' });
+        }
+
         // Reset form data
         this.first_name = '';
         this.last_name = '';
         this.relationship = '';
         this.email = '';
         this.phone_number = '';
+
       } catch (error) {
         console.error(error);
       }

@@ -1,6 +1,7 @@
 <script>
 import { addHistory } from '../../services/database.js';
 import { getPeople } from '../../services/database.js';
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/api/notification';
 
 export default {
     name: 'AddHistoryForm',
@@ -36,6 +37,16 @@ export default {
                     this.topic,
                     this.contact_platform,
                 );
+                // send notification
+                let permissionGranted = await isPermissionGranted();
+                console.log("permission is:", permissionGranted)
+                if (!permissionGranted) {
+                    const permission = await requestPermission();
+                    permissionGranted = permission === 'granted';
+                }
+                if (permissionGranted) {
+                    sendNotification({ title: 'Add Event Successful', body: 'Event logged for later viewing.' });
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -66,7 +77,7 @@ export default {
                 <label for="topic">Topic</label>
                 <input type="text" id="topic" v-model="topic" placeholder="Conversation Notes" />
             </div>
-            
+
             <div class="add-history-form-button">
                 <button class="button" @click="SubmitEvent">Add Event</button>
             </div>
